@@ -3,7 +3,7 @@ import { useUserAuth } from "../context/UserAuthContext";
 import { Box, Button, Divider, TextField } from "@mui/material";
 import GoogleIcon from "@mui/icons-material/Google";
 import img from "./images/signup.jpg";
-import { Reveal } from "./Reveal";
+import { Reveal } from "./animates/Reveal";
 function SignUp() {
   const { googleSignIn } = useUserAuth();
   const navigate = useNavigate();
@@ -47,12 +47,20 @@ function SignUp() {
           }}
         >
           <Box
-            style={{ display: "flex", flexDirection: "column", margin: "10px" }}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              margin: "10px",
+              color: "white",
+            }}
           >
             <Reveal>
               <TextField
                 label="Email"
                 color="primary"
+                InputProps={{
+                  style: { color: "white" },
+                }}
                 focused
                 sx={{ marginTop: "10px", marginBottom: "10px" }}
               />
@@ -62,8 +70,16 @@ function SignUp() {
                 label="Password"
                 color="primary"
                 focused
+                InputProps={{
+                  style: { color: "white" },
+                }}
                 sx={{ marginTop: "10px", marginBottom: "10px" }}
               />
+            </Reveal>
+            <Reveal>
+              <Button fullWidth variant="contained">
+                SIGN IN
+              </Button>
             </Reveal>
           </Box>
           <Divider sx={{ color: "white", marginBottom: "10px" }}>OR</Divider>
