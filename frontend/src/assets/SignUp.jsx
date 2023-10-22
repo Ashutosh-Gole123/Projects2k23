@@ -1,7 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import { useUserAuth } from "../context/UserAuthContext";
-import { Button } from "@mui/material";
-
+import { Box, Button, Divider, TextField } from "@mui/material";
+import GoogleIcon from "@mui/icons-material/Google";
+import img from "./images/signup.jpg";
+import { Reveal } from "./Reveal";
 function SignUp() {
   const { googleSignIn } = useUserAuth();
   const navigate = useNavigate();
@@ -15,17 +17,70 @@ function SignUp() {
     }
   };
   return (
-    <div>
-      <Button
-        onClick={handleGoogleSignIn}
+    <div
+      style={{
+        backgroundImage: `url(${img})`,
+        height: "100vh",
+        backgroundSize: "cover",
+      }}
+    >
+      <div
         style={{
-          background: "#CFD9F3",
-          padding: "15px 30px 15px 30px",
-          boxShadow: "0 8px 40px -12px rgba(0,0,0,0.3)",
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          background: "rgba(0, 0, 0, 0.6)", // Adjust the opacity (0.5) and color if needed
+          zIndex: 1, // Ensure the overlay is above the background image
         }}
       >
-        SignIn With Google
-      </Button>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            flexWrap: "wrap",
+            alignContent: "center",
+            justifyContent: "center",
+            height: "100vh",
+            width: "100vh",
+          }}
+        >
+          <Box
+            style={{ display: "flex", flexDirection: "column", margin: "10px" }}
+          >
+            <Reveal>
+              <TextField
+                label="Email"
+                color="primary"
+                focused
+                sx={{ marginTop: "10px", marginBottom: "10px" }}
+              />
+            </Reveal>
+            <Reveal>
+              <TextField
+                label="Password"
+                color="primary"
+                focused
+                sx={{ marginTop: "10px", marginBottom: "10px" }}
+              />
+            </Reveal>
+          </Box>
+          <Divider sx={{ color: "white", marginBottom: "10px" }}>OR</Divider>
+
+          <Reveal>
+            <Button
+              fullWidth
+              variant="contained"
+              onClick={handleGoogleSignIn}
+              style={{ backgroundColor: "white", color: "#333" }}
+            >
+              <GoogleIcon style={{ color: "#4AABE8", marginRight: "10px" }} />{" "}
+              SIGN UP
+            </Button>
+          </Reveal>
+        </Box>
+      </div>
     </div>
   );
 }
