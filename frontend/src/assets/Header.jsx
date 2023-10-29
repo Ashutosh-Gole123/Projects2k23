@@ -16,7 +16,7 @@ import { useUserAuth } from "../context/UserAuthContext";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { TopReveal } from "./animates/TopReveal";
 
-const pages = ["Products", "Pricing", "Blog"];
+const pages = ["Home", "Services", "Products"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function Header() {
