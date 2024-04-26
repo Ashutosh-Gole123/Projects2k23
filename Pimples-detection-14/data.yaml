@@ -1,0 +1,21 @@
+names:
+- Pimples
+- blackhead
+- conglobata
+- crystanlline
+- cystic
+- folliculitis
+- keloid
+- milium
+- papular
+- purulent
+nc: 10
+roboflow:
+  license: CC BY 4.0
+  project: pimples-detection
+  url: https://universe.roboflow.com/charan-a-a-8lhwj/pimples-detection/dataset/14
+  version: 14
+  workspace: charan-a-a-8lhwj
+test: ../test/images
+train: Pimples-detection-14/train/images
+val: Pimples-detection-14/valid/images
